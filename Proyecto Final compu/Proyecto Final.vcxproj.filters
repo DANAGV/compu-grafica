@@ -27,7 +27,7 @@
     <ClCompile Include="Mobiliario.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="compu.cpp">
+    <ClCompile Include="compu - final.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

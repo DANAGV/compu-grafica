@@ -135,7 +135,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="compu.cpp" />
+    <ClCompile Include="compu - final.cpp" />
     <ClCompile Include="figuras.cpp" />
     <ClCompile Include="Mobiliario.cpp" />
     <ClCompile Include="texture.cpp" />
