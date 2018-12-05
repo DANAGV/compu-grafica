@@ -36,6 +36,7 @@ class CCamera
 		tVector3 mView;		
 		tVector3 mUp;			
 
+		void Mouse_Move(int wndWidth, int wndHeight);
 		void Strafe_Camera(float speed);
 		void Move_Camera(float speed);
 		void Rotate_View(float speed);
@@ -44,3 +45,29 @@ class CCamera
 			 				 float view_x,	float view_y,	float view_z,
 							 float up_x,	float up_y,		float up_z);
 };
+
+//NEW//////////////////NEW//////////////////NEW//////////////////NEW////////////////
+
+//////////////////////////////////////
+//	Global Variables
+//////////////////////////////////////
+extern	HDC			hDC;				// Device context
+extern	HGLRC		hRC;				// Permanent rendering context
+extern	HWND		hWnd;				// Holds our window handle
+extern	HINSTANCE	hInstance;			// Holds the instance of the application
+
+
+
+//NEW//////////////////NEW//////////////////NEW//////////////////NEW////////////////
+
+//////////////////////////////////////
+//	MAIN FUNCTIONS
+//////////////////////////////////////
+void Keyboard_Input();
+void Draw_Grid();
+
+//NEW//////////////////NEW//////////////////NEW//////////////////NEW////////////////
+
+
+
+

@@ -61,6 +61,37 @@ void CCamera::Strafe_Camera(float speed)
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
+//										THE CCAMERA MOUSE MOVE
+/////////////////////////////////////////////////////////////////////////////////////////////////
+void CCamera::Mouse_Move(int wndWidth, int wndHeight)
+{
+	POINT mousePos;
+	int mid_x = wndWidth >> 1;
+	int mid_y = wndHeight >> 1;
+	float angle_y = 0.0f;
+	float angle_z = 0.0f;
+
+	GetCursorPos(&mousePos);	// Get the 2D mouse cursor (x,y) position					
+
+	if ((mousePos.x == mid_x) && (mousePos.y == mid_y)) return;
+
+	SetCursorPos(mid_x, mid_y);	// Set the mouse cursor in the center of the window						
+
+	// Get the direction from the mouse cursor, set a resonable maneuvering speed
+	angle_y = (float)((mid_x - mousePos.x)) / 1000;
+	angle_z = (float)((mid_y - mousePos.y)) / 1000;
+
+	// The higher the value is the faster the camera looks around.
+	mView.y += angle_z * 2;
+
+	// limit the rotation around the x-axis
+	if ((mView.y - mPos.y) > 8)  mView.y = mPos.y + 8;
+	if ((mView.y - mPos.y) < -8)  mView.y = mPos.y - 8;
+
+	Rotate_View(-angle_y); // Rotate
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
 //										THE CCAMERA UP-DOWN CAMERA
 /////////////////////////////////////////////////////////////////////////////////////////////////
 void CCamera::UpDown_Camera(float speed)
