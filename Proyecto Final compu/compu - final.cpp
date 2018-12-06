@@ -31,7 +31,7 @@ float rotX = 0;
 float giroMonito = 0;
 float movBrazoDer = 0.0;
 
-/*
+
 //animacion brazo
 float rotp11 = 0.0;
 float rotp12 = 0.0;
@@ -46,7 +46,6 @@ bool brazo3 = FALSE;
 bool brazo4 = FALSE;
 bool brazo5 = FALSE;
 
-*/
 
 #define MAX_FRAMES 9 //cantidad de frames que vamos a guardar
 
@@ -75,11 +74,10 @@ typedef struct _frame
 }FRAME;
 
 
-
-
 FRAME KeyFrame[MAX_FRAMES];
 int FrameIndex = 10;			//introducir datos
-int FrameIndex2 = 10;			//introducir datos
+int FrameIndex2 = 10; //introducir datos
+int FrameIndex3 = 10;
 bool play = false;
 int playIndex = 0;
 
@@ -589,537 +587,549 @@ void display(void)   // Creamos la funcion donde se dibuja
 
 	//MOTO
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(50, -2, 90);
-	glRotatef(180, 0, 1, 0);
-	glScalef(.002, .002, .002);
-	moto.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(105, -4.7, 95);
+		glRotatef(180, 0, 1, 0);
+		glTranslatef(0, posY, posX);
+		glRotatef(rotY, 1, 0, 0);
+		glRotatef(rotX, 0, 1, 0);
+		glScalef(.002, .002, .002);
+		glDisable(GL_COLOR_MATERIAL);
+		moto.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//sofa
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(60, -3.5, 35);
-	glRotatef(180, 0, 1, 0);
-	glScalef(.05, .05, .05);
-	sofa.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(60, -3.5, 35);
+		glRotatef(180, 0, 1, 0);
+		glScalef(.05, .05, .05);
+		sofa.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//sofa
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(65, -3.5, 25);
-	glRotatef(-90, 0, 1, 0);
-	glScalef(.05, .05, .05);
-	sofa.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(65, -3.5, 25);
+		glRotatef(-90, 0, 1, 0);
+		glScalef(.05, .05, .05);
+		sofa.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//reloj
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(10.2, 10, 20);
-	glRotatef(90, 0, 1, 0);
-	glScalef(.2, .2, .2);
-	reloj.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(10.2, 10, 20);
+		glRotatef(90, 0, 1, 0);
+		glScalef(.2, .2, .2);
+		reloj.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//mesa
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(55, -3.5, 25);
-	glScalef(.1, .1, .1);
-	mesa.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(55, -3.5, 25);
+		glScalef(.1, .1, .1);
+		mesa.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//maceta
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(52, -3.3, 16.5);
-	glRotatef(180, 0, 1, 0);
-	glScalef(.2, .2, .2);
-	maceta.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(52, -3.3, 16.5);
+		glRotatef(180, 0, 1, 0);
+		glScalef(.2, .2, .2);
+		maceta.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//maceta
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(63, -3.5, 44);
-	glRotatef(180, 0, 1, 0);
-	glScalef(.2, .2, .2);
-	maceta.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(63, -3.5, 44);
+		glRotatef(180, 0, 1, 0);
+		glScalef(.2, .2, .2);
+		maceta.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//recepción
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(20, -3.2, 20);
-	glRotatef(270,0,1,0);
-	glScalef(.005, .005, .005);
-	recepcion.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(20, -3.2, 20);
+		glRotatef(270,0,1,0);
+		glScalef(.005, .005, .005);
+		recepcion.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//silla
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(30, -3.2, 20);
-	glRotatef(90, 0, 1, 0);
-	glScalef(.16, .16, .16);
-	silla.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(30, -3.2, 20);
+		glRotatef(90, 0, 1, 0);
+		glScalef(.16, .16, .16);
+		silla.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
+	glPopMatrix();
+			
+	//AUTOMOVIL
+	glPushMatrix();
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(60, -3.5, 90);
+		glRotatef(180, 0, 1, 0);
+		//glTranslatef(0, posY, posX);
+		//glRotatef(rotY, 1, 0, 0);
+		//glRotatef(rotX, 0, 1, 0);
+		glScalef(6, 6, 6);
+		glDisable(GL_COLOR_MATERIAL);
+		coche.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 	//AUTOMOVIL
 	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(60, -3.5, 90);
-	glRotatef(180, 0, 1, 0);
-	glScalef(6, 6, 6);
-	coche.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
-	glPopMatrix();
-
-	//AUTOMOVIL
-	glPushMatrix();
-	glDisable(GL_COLOR_MATERIAL);
-	glTranslatef(95, -3.5, -90);
-	glRotatef(0, 0, 1, 0);
-	glScalef(3, 4, 3);
-	coche.GLrender(NULL, _SHADED, 1.0);
-	glEnable(GL_COLOR_MATERIAL);
+		glDisable(GL_COLOR_MATERIAL);
+		glTranslatef(95, -4.5, -90);
+		glRotatef(0, 0, 1, 0);
+		glTranslatef(0, posY, posX);
+		glRotatef(rotY, 1, 0, 0);
+		glRotatef(rotX, 0, 1, 0);
+		glScalef(3, 4, 3);
+		glDisable(GL_COLOR_MATERIAL);
+		coche.GLrender(NULL, _SHADED, 1.0);
+		glEnable(GL_COLOR_MATERIAL);
 	glPopMatrix();
 
 
 	//PASTO
 	glPushMatrix();
-	glDisable(GL_LIGHTING);
-	glTranslatef(0, -5.01, 0);
-	casa.prisma(.1, 250, 250, pasto.GLindex, pasto.GLindex);
-	glEnable(GL_LIGHTING);
+		glDisable(GL_LIGHTING);
+		glTranslatef(0, -5.01, 0);
+		casa.prisma(.1, 250, 250, pasto.GLindex, pasto.GLindex);
+		glEnable(GL_LIGHTING);
 	glPopMatrix();
 
 	// PISO DEL EDIFICIO 
 		//INICIA PISO RECEPCION
 	glPushMatrix();
-	glTranslatef(60, -3.5, 40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(60, -3.5, 40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(60, -3.5, 20);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(60, -3.5, 20);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(40, -3.5, 40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(40, -3.5, 40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(40, -3.5, 20);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(40, -3.5, 20);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(20, -3.5, 40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(20, -3.5, 40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(20, -3.5, 20);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(20, -3.5, 20);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 	// TERMINA PISO RECEPCION
 	// INICIA PISO PASILLO
 	glPushMatrix();
-	glTranslatef(0, -3.5, 40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(0, -3.5, 40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-20, -3.5, 40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-20, -3.5, 40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 	// TERMINA PISO PASILLO
 
 	//INICIA PISO CUBICULOS A AUDITORIO
 	glPushMatrix();
-	glTranslatef(-40, -3.5, 40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-40, -3.5, 40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-40, -3.5, 20);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-40, -3.5, 20);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-60, -3.5, 40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-60, -3.5, 40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-60, -3.5, 20);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-60, -3.5, 20);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-40, -3.5, 0);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-40, -3.5, 0);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-60, -3.5, 0);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-60, -3.5, 0);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-40, -3.5, -20);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-40, -3.5, -20);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
+		glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(-60, -3.5, -20);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-60, -3.5, -20);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-60, -3.5, -40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-60, -3.5, -40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(-40, -3.5, -40);
-	glRotatef(90, -90, 0, 0);
-	glScalef(20, 20, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(piso2.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-40, -3.5, -40);
+		glRotatef(90, -90, 0, 0);
+		glScalef(20, 20, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(piso2.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 	// TERMINA PASILLO AUDITORIO
 
 	glPushMatrix();
-	glTranslatef(30, 25, 50);
-	glScalef(80, 60, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(30, 25, 50);
+		glScalef(80, 60, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-40, 25, 50);
-	glScalef(60, 60, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-40, 25, 50);
+		glScalef(60, 60, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-10, 25, 30);
-	glScalef(40, 60, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-10, 25, 30);
+		glScalef(40, 60, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	// PAREDES CON SALIDAS
 	glPushMatrix();
-	glTranslatef(-35, 25, -50);
-	glScalef(10, 60, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-35, 25, -50);
+		glScalef(10, 60, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
+	glPopMatrix();
+	
+	glPushMatrix();
+		glTranslatef(-65, 25, -50);
+		glScalef(10, 60, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-65, 25, -50);
-	glScalef(10, 60, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-50, 14, -50);
+		glScalef(20, 5, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-50, 14, -50);
-	glScalef(20, 5, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(-50, 35, -50);
+		glScalef(20, 40, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
+	glPopMatrix();
+	
+	glPushMatrix();
+		glTranslatef(60, 25, 10);
+		glScalef(20, 60, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(-50, 35, -50);
-	glScalef(20, 40, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(20, 25, 10);
+		glScalef(20, 60, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
-	glTranslatef(60, 25, 10);
-	glScalef(20, 60, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(20, 25, 10);
-	glScalef(20, 60, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef(40, 14, 10);
-	glScalef(20, 5, 0);
-	glEnable(GL_ALPHA_TEST);
-	glAlphaFunc(GL_GREATER, 0.1);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glDisable(GL_LIGHTING);//LUZ
-	plano(gris.GLindex);
-	glEnable(GL_LIGHTING);//LUZ
-	glDisable(GL_BLEND);
-	glDisable(GL_ALPHA_TEST);
+		glTranslatef(40, 14, 10);
+		glScalef(20, 5, 0);
+		glEnable(GL_ALPHA_TEST);
+		glAlphaFunc(GL_GREATER, 0.1);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_LIGHTING);//LUZ
+		plano(gris.GLindex);
+		glEnable(GL_LIGHTING);//LUZ
+		glDisable(GL_BLEND);
+		glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
 
 	glPushMatrix();
@@ -2378,7 +2388,7 @@ void display(void)   // Creamos la funcion donde se dibuja
 
 	//______________________________________DETALLES______________________-
 
-	/*	//brazo
+		//brazo
 	glPushMatrix();
 	glTranslatef(20, 0.7, -8.0);
 	glPushMatrix();
@@ -2468,10 +2478,6 @@ void display(void)   // Creamos la funcion donde se dibuja
 	glPopMatrix();  //fin2
 	glPopMatrix(); // fin 1
 
-	glutSwapBuffers();
-
-	*/
-
 	/////////////////////////////////////////
 
 	glutSwapBuffers();
@@ -2505,84 +2511,85 @@ void animacion()
 			vuelay = 0;
 			vuelaz = 0;
 		}
-
 	}
+
+	/*if (brazo)
+	{
+
+		//brazo
+		if (brazo5 == TRUE) {
+			rotp11 = 0.0;
+			rotp12 = 0.0;
+			rotp21 = 0.0;
+			rotp22 = 0.0;
+			rotp3 = 0.0;
+			rotp4 = 0.0;
+			brazo5 = FALSE;
+			brazo = TRUE;
+		}
+
+		if (brazo == TRUE) {
+			if (rotp11 == 10) {
+				brazo1 = TRUE;
+				brazo = FALSE;
+			}
+			else {
+				rotp11++;
+			}
+		}
+
+		if (brazo1 == TRUE) {
+			if (rotp12 == 10) {
+				brazo2 = TRUE;
+				brazo1 ^= FALSE;
+			}
+			else {
+				rotp12++;
+			}
+
+		}
+
+		if (brazo2 == TRUE) {
+
+			if (rotp21 == 45) {
+				brazo3 = TRUE;
+				brazo2 = FALSE;
+			}
+			else {
+				rotp21++;
+			}
+		}
+
+		if (brazo3 == TRUE) {
+
+			if (rotp22 == 45) {
+				brazo4 = TRUE;
+				brazo3 = FALSE;
+			}
+			else {
+				rotp22++;
+			}
+		}
+
+		if (brazo4 == TRUE) {
+
+			if (rotp3 == 10) {
+				brazo4 = FALSE;
+				brazo = TRUE;
+			}
+			else {
+				rotp3++;
+				rotp4++;
+			}
+		}
+	}
+	*/
+
+
 	glutPostRedisplay();
 }
 
-/*
-void animacionbrazo()
-{
 
-	//brazo
-	if (brazo5 == TRUE) {
-		rotp11 = 0.0;
-		rotp12 = 0.0;
-		rotp21 = 0.0;
-		rotp22 = 0.0;
-		rotp3 = 0.0;
-		rotp4 = 0.0;
-		brazo5 = FALSE;
-		brazo = TRUE;
-	}
-
-	if (brazo == TRUE) {
-		if (rotp11 == 10) {
-			brazo1 = TRUE;
-			brazo = FALSE;
-		}
-		else {
-			rotp11++;
-		}
-	}
-
-	if (brazo1 == TRUE) {
-		if (rotp12 == 10) {
-			brazo2 = TRUE;
-			brazo1 ^= FALSE;
-		}
-		else {
-			rotp12++;
-		}
-
-	}
-
-	if (brazo2 == TRUE) {
-
-		if (rotp21 == 45) {
-			brazo3 = TRUE;
-			brazo2 = FALSE;
-		}
-		else {
-			rotp21++;
-		}
-	}
-
-	if (brazo3 == TRUE) {
-
-		if (rotp22 == 45) {
-			brazo4 = TRUE;
-			brazo3 = FALSE;
-		}
-		else {
-			rotp22++;
-		}
-	}
-
-	if (brazo4 == TRUE) {
-
-		if (rotp3 == 10) {
-			brazo4 = FALSE;
-			brazo = TRUE;
-		}
-		else {
-			rotp3++;
-			rotp4++;
-		}
-	}
-}
-
-*/
 void reshape(int width, int height)   // Creamos funcion Reshape
 {
 	if (height == 0)										// Prevenir division entre cero
@@ -2663,7 +2670,6 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		}
 		PlaySound(TEXT("musica3.WAV"), NULL, SND_LOOP | SND_ASYNC);
 		break;
-
 	case 'k':		//
 	case 'K':
 		if (FrameIndex < MAX_FRAMES)
@@ -2673,14 +2679,26 @@ void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
 		break;
 
 		//ANIMACION BRAZO
-			//case 'y':
-			//case 'Y':
-			//	brazo5 ^= TRUE;
-			//break;
+		case 'y':
+		case 'Y':
+			brazo5 ^= TRUE;
+		break;
 
-				//case ' ':		//Poner algo en movimiento
-				//	g_fanimacion^= true; //Activamos/desactivamos la animacíon
-				//	break;
+		case '1':
+			posX++;
+			posX += 0.5;
+			printf("%f \n", posX);
+			break;
+
+		case '2':
+			posX--;
+			posX -= 0.5;
+			printf("%f \n", posX);
+			break;
+
+		//case ' ':		//Poner algo en movimiento
+		//	g_fanimacion^= true; //Activamos/desactivamos la animacíon
+		//	break;
 
 	case 27:        // Cuando Esc es presionado...
 		exit(0);   // Salimos del programa
