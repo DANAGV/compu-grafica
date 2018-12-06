@@ -490,6 +490,94 @@ void InitGL(GLvoid)     // Inicializamos parametros
 
 }
 
+void monito(void)
+{
+	glPushMatrix();
+		glPushMatrix();//Pecho
+			glTranslatef(0.0, -1.0, 0.0);
+			glScalef(0.5, 0.5, 0.5);
+			fig1.prisma(6.0, 0.9, 1, text2.GLindex, 0);
+			glPushMatrix();
+				glTranslatef(0.0, 2.0, 0.0);
+				fig1.prisma(1.0, 3.0, 1, text2.GLindex, 0);
+			glPopMatrix();
+
+			glPushMatrix();//Cuello
+				glTranslatef(0, 3.0, 0.0);
+				fig1.cilindro(0.25, 0.5, 15, 0);
+				glPushMatrix();//Cabeza
+					glTranslatef(0, 0.5, 0);
+					fig1.prisma(0.5, 2, 1, text2.GLindex, 0);
+				glPopMatrix();
+			glPopMatrix();
+
+			glPushMatrix(); //Brazo derecho-->
+				glTranslatef(1.25, 1.65, 0);
+				fig1.esfera(0.5, 12, 12, 0);
+				glPushMatrix();
+					glTranslatef(0.25, 0, 0);
+					glRotatef(0, 1.0, 0.0, 0.0);
+					//glRotatef(-90, 0, 1, 0);
+					glTranslatef(0.75, 0, 0);
+					fig1.prisma(0.7, 1.5, 0.7, 0, 0);
+					glPushMatrix();
+						glTranslatef(1.0, 0, 0);
+						fig1.esfera(0.5, 12, 12, 0);
+						glPushMatrix();
+							glTranslatef(0.25, 0, 0);
+							fig1.prisma(0.7, 1.5, 0.7, 0, 0);
+							glPushMatrix();
+								glTranslatef(1.0, 0, 0);
+								fig1.esfera(0.5, 12, 12, 0);
+								glPushMatrix();
+									glTranslatef(0.25, 0, 0);
+									fig1.prisma(0.7, 1.5, 0.7, 0, 0);
+								glPopMatrix();
+							glPopMatrix();
+						glPopMatrix();
+					glPopMatrix();
+				glPopMatrix();
+
+					glPushMatrix(); //Brazo izquierdo <--
+						glRotatef(180, 0, 1, 0);
+						glTranslatef(1.25, 0.65, 0);
+						fig1.esfera(0.5, 12, 12, 0);
+						glPushMatrix();
+							glTranslatef(0.25, 0, 0);
+							glRotatef(0, 1.0, 0.0, 0.0);
+							//glRotatef(-90, 0, 1, 0);
+							glTranslatef(0.75, 0, 0);
+							fig1.prisma(0.7, 1.5, 0.7, 0, 0);
+							glPushMatrix();
+								glTranslatef(1.0, 0, 0);
+								fig1.esfera(0.5, 12, 12, 0);
+								glPushMatrix();
+								glTranslatef(0.25, 0, 0);
+								fig1.prisma(0.7, 1.5, 0.7, 0, 0);
+								glPushMatrix();
+									glTranslatef(1.0, 0, 0);
+									fig1.esfera(0.5, 12, 12, 0);
+									glPushMatrix();
+										glTranslatef(0.25, 0, 0);
+										fig1.prisma(0.7, 1.5, 0.7, 0, 0);
+									glPopMatrix();
+								glPopMatrix();
+							glPopMatrix();
+						glPopMatrix();
+
+						glPushMatrix();//Cintura
+							glColor3f(0, 0, 1);
+							glTranslatef(0, -4, 0);
+							fig1.prisma(2, 3, 1, 0, 0);
+						glPopMatrix();
+					glPopMatrix();
+					glColor3f(1, 1, 1);
+				glPopMatrix();
+			glPopMatrix();
+			//glEndList();
+	glPopMatrix();
+			return;
+}
 
 void arbol()
 {
@@ -2589,6 +2677,33 @@ void animacion()
 	glutPostRedisplay();
 }
 
+//mouse
+void mouseMove(int x, int y) {
+
+	//printf("x=%d\n",x);
+	//printf("y=%d\n", y);
+	if (x > 500)
+	{
+		objCamera.Rotate_View(CAMERASPEED + .01f);
+		glutWarpPointer(500, 500);
+	}
+	if (x < 500)
+	{
+		objCamera.Rotate_View(-CAMERASPEED - 0.01f);
+		glutWarpPointer(500, 500);
+	}
+	if (y < 500)
+	{
+		g_lookupdown -= 0.7f;
+		glutWarpPointer(500, 500);
+	}
+	if (y > 500)
+	{
+		g_lookupdown += 0.7f;
+		glutWarpPointer(500, 500);
+	}
+}
+
 
 void reshape(int width, int height)   // Creamos funcion Reshape
 {
@@ -2609,6 +2724,7 @@ void reshape(int width, int height)   // Creamos funcion Reshape
 	glMatrixMode(GL_MODELVIEW);							// Seleccionamos Modelview Matrix
 	glLoadIdentity();
 }
+
 
 
 void keyboard(unsigned char key, int x, int y)  // Create Keyboard Function
@@ -2861,7 +2977,8 @@ int main(int argc, char** argv)   // Main Function
 	glutAddSubMenu("Animacion Monito", submenu);
 
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
-
+	glutPassiveMotionFunc(mouseMove); //Indicamos a GLUT la funcion de manejo de la camara con el mouse
+	glutSetCursor(GLUT_CURSOR_NONE);
 	glutMainLoop();
 
 	return 0;
